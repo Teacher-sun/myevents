@@ -23,21 +23,21 @@ function getUserInfo() {
         method: 'get',
 
         success: function(res) {
-            console.log(res);
-            if (res.status !== 0) {
-                return layui.layer.msg('获取用户信息失败')
+                console.log(res);
+                if (res.status !== 0) {
+                    return layui.layer.msg('获取用户信息失败')
+                }
+                renderAvatar(res.data)
             }
-            renderAvatar(res.data)
-        },
-        // 无论成功还是失败  都会执行complete函数
-        // complete: function(res) {
-        //     // console.log(res);
-        //     // 在complete函数中  可以使用res.responseJSON拿到服务器响应回来的数据
-        //     if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
-        //         // 清空token
-        //         localStorage.removeItem('token')
-        //             // 跳转到登录页面
-        //         location.href = '/login.html'
+            // 无论成功还是失败  都会执行complete函数
+            // complete: function(res) {
+            //     // console.log(res);
+            //     // 在complete函数中  可以使用res.responseJSON拿到服务器响应回来的数据
+            //     if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
+            //         // 清空token
+            //         localStorage.removeItem('token')
+            //             // 跳转到登录页面
+            //         location.href = '/login.html'
 
         //     }
         // }
